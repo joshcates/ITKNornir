@@ -32,7 +32,7 @@
 #if defined(WIN32)
   #pragma warning ( disable : 4996 )
 #endif
-#include "dirent.h"
+#include <filesystem>
 #if defined(WIN32)
   #pragma warning ( default : 4996 )
 #endif
@@ -84,30 +84,14 @@ public:
   static std::list<the_text_t> DirectoryContents(const the_text_t &path)
   {
     std::list<the_text_t> files;
-  
-    DIR *dp;
-    struct dirent *dirp;
-    if((dp  = opendir(path.text())) == NULL) {
-      cout << "Error(" << errno << ") opening " << path << endl;
-      return files;
-    }
-  
-    while ((dirp = readdir(dp)) != NULL) {
-      files.push_back( dirp->d_name );
-    }
-    closedir(dp);
 
-    // Remove .
-    files.pop_front();
-
-    // Remove ..
-    files.pop_front();
+    for (const auto & entry : std::filesystem::directory_iterator(path.text()))
+    {
+      files.push_back(entry.path().filename().string().c_str());
+    }
 
     return files;
   }
-
 };
 
 #endif
-
-
