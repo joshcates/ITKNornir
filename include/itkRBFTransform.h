@@ -105,7 +105,7 @@ public:
 
   // virtual:
   OutputPointType
-  TransformPoint(const InputPointType & uv) const;
+  TransformPoint(const InputPointType & uv) const override;
 
   // Inverse transformations:
   // If y = Transform(x), then x = BackTransform(y);
@@ -135,28 +135,28 @@ public:
 
   // virtual:
   void
-  SetFixedParameters(const ParametersType & params)
+  SetFixedParameters(const ParametersType & params) override
   {
     this->m_FixedParameters = params;
   }
 
   // virtual:
   const ParametersType &
-  GetFixedParameters() const
+  GetFixedParameters() const override
   {
     return this->m_FixedParameters;
   }
 
   // virtual:
   void
-  SetParameters(const ParametersType & params)
+  SetParameters(const ParametersType & params) override
   {
     this->m_Parameters = params;
   }
 
   // virtual:
   const ParametersType &
-  GetParameters() const
+  GetParameters() const override
   {
     return this->m_Parameters;
   }
@@ -306,7 +306,7 @@ protected:
 
   // virtual:
   void
-  PrintSelf(std::ostream & s, Indent indent) const;
+  PrintSelf(std::ostream & s, Indent indent) const override;
 
 private:
   // disable default copy constructor and assignment operator:

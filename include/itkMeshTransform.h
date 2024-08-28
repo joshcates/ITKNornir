@@ -90,7 +90,7 @@ public:
 
   // virtual:
   OutputPointType
-  TransformPoint(const InputPointType & x) const
+  TransformPoint(const InputPointType & x) const override
   {
     OutputPointType y;
     if (transform_.grid_.cols_ == 0 || transform_.grid_.cols_ == 0)
@@ -180,14 +180,14 @@ public:
 
   // virtual:
   void
-  SetFixedParameters(const ParametersType & params)
+  SetFixedParameters(const ParametersType & params) override
   {
     this->m_FixedParameters = params;
   }
 
   // virtual:
   const ParametersType &
-  GetFixedParameters() const
+  GetFixedParameters() const override
   {
     ParametersType params = this->m_FixedParameters;
 
@@ -212,7 +212,7 @@ public:
 
   // virtual:
   void
-  SetParameters(const ParametersType & params)
+  SetParameters(const ParametersType & params) override
   {
     this->m_Parameters = params;
 
@@ -246,7 +246,7 @@ public:
 
   // virtual:
   const ParametersType &
-  GetParameters() const
+  GetParameters() const override
   {
     ParametersType params(GetNumberOfParameters());
 

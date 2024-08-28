@@ -91,7 +91,7 @@ public:
   inline void MinimizeOff()		{ SetMaximize(true); }
   
   // virtual:
-  void StartOptimization();
+  void StartOptimization() override;
   
   // virtual:
   void ResumeOptimization();
@@ -145,7 +145,7 @@ protected:
 				 const DerivativeType & step_direction);
   
   // virtual:
-  void PrintSelf(std::ostream& os, Indent indent) const;
+  void PrintSelf(std::ostream& os, Indent indent) const override;
   
   // data members:
   DerivativeType	m_Gradient; 
