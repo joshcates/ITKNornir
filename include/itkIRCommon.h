@@ -4112,7 +4112,7 @@ public:
     const feathering_t      feathering = FEATHER_NONE_E,
     typename IMG::PixelType background = 255.0,
     OUTPUT *                output = NULL,
-    the_text_t &            saveFileName = "")
+    the_text_t              saveFileName = "")
     : // If we should save the image to disk, use this filename
     m_num_threads(num_threads)
     , m_assemble_mosaic_mask(assemble_mosaic_mask)
