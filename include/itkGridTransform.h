@@ -54,7 +54,7 @@
 //
 namespace itk
 {
-class GridTransform : public Transform<double, 2, 2>
+class GridTransform : public Transform<SpacePrecisionType, 2, 2>
 {
 public:
   // standard typedefs:
@@ -62,7 +62,7 @@ public:
   typedef SmartPointer<Self>       Pointer;
   typedef SmartPointer<const Self> ConstPointer;
 
-  typedef Transform<double, 2, 2> Superclass;
+  typedef Transform<SpacePrecisionType, 2, 2> Superclass;
 
   // Base inverse transform type:
   typedef Superclass                         InverseTransformType;
@@ -75,7 +75,7 @@ public:
   itkNewMacro(Self);
 
   /** Standard scalar type for this class. */
-  typedef double ScalarType;
+  typedef SpacePrecisionType ScalarType;
 
   /** Dimension of the domain space. */
   itkStaticConstMacro(InputSpaceDimension, unsigned int, 2);
@@ -112,7 +112,7 @@ public:
     // ITK does not handle NaN numbers:
     if (y[0] != y[0])
     {
-      y[0] = std::numeric_limits<double>::max();
+      y[0] = std::numeric_limits<OutputPointType::ValueType>::max();
       y[1] = y[0];
     }
 
@@ -145,7 +145,7 @@ public:
     // ITK does not handle NaN numbers:
     if (x[0] != x[0])
     {
-      x[0] = std::numeric_limits<double>::max();
+      x[0] = std::numeric_limits<InputPointType::ValueType>::max();
       x[1] = x[0];
     }
 
@@ -295,11 +295,11 @@ public:
     // the_grid_transform_t expects uv in the [0,1]x[0,1] range,
     // where as we remap it into the image tile physical coordinates
     // according to tile_min_ and tile_ext_:
-    double Su = transform_.tile_ext_[0];
-    double Sv = transform_.tile_ext_[1];
+    FixedParametersValueType Su = transform_.tile_ext_[0];
+    FixedParametersValueType Sv = transform_.tile_ext_[1];
 
-    unsigned int idx[3];
-    double       jac[12];
+    unsigned int             idx[3];
+    FixedParametersValueType jac[12];
     jacobian.SetSize(2, GetNumberOfParameters());
     jacobian.Fill(0.0);
     if (transform_.jacobian(point, idx, jac))
@@ -328,7 +328,7 @@ protected:
     this->m_FixedParameters[2] = 0.0;
 
     // tile bbox:
-    this->m_FixedParameters[3] = std::numeric_limits<double>::max();
+    this->m_FixedParameters[3] = std::numeric_limits<FixedParametersValueType>::max();
     this->m_FixedParameters[4] = this->m_FixedParameters[3];
     this->m_FixedParameters[5] = -(this->m_FixedParameters[3]);
     this->m_FixedParameters[6] = -(this->m_FixedParameters[3]);
