@@ -2,6 +2,7 @@ itk_module_test()
 
 set(NornirTests
   itkIRRefineGridTest.cxx
+  itkCompileTest.cxx
   )
 
 CreateTestDriver(Nornir "${Nornir-Test_LIBRARIES}" "${NornirTests}")
