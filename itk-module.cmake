@@ -17,6 +17,7 @@ itk_module(Nornir
   ITKStatistics
   ITKIOImageBase
   ITKTransformFactory
+  ITKSpatialObjects
   COMPILE_DEPENDS
   ITKImageSources
   ITKImageIntensity
