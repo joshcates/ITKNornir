@@ -69,7 +69,7 @@
 //
 namespace itk
 {
-template <class TScalar = double, unsigned int N = 2>
+template <class TScalar = itk::SpacePrecisionType, unsigned int N = 2>
 class LegendrePolynomialTransform : public Transform<TScalar, 2, 2>
 {
 public:
@@ -107,6 +107,7 @@ public:
   itkStaticConstMacro(OutputSpaceDimension, unsigned int, 2);
 
   // shortcuts:
+  using FixedParametersType = typename Superclass::FixedParametersType;
   typedef typename Superclass::ParametersType ParametersType;
   typedef typename Superclass::JacobianType   JacobianType;
 
@@ -145,13 +146,13 @@ public:
 
   // virtual:
   void
-  SetFixedParameters(const ParametersType & params) override
+  SetFixedParameters(const FixedParametersType & params) override
   {
     this->m_FixedParameters = params;
   }
 
   // virtual:
-  const ParametersType &
+  const FixedParametersType &
   GetFixedParameters() const override
   {
     return this->m_FixedParameters;

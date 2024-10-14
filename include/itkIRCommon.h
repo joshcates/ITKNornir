@@ -221,7 +221,7 @@ typedef itk::TranslationTransform<double, 2> translate_transform_t;
 //
 // Shorthand for 2D points.
 //
-typedef itk::Point<double, 2> pnt2d_t;
+typedef itk::Point<itk::SpacePrecisionType, 2> pnt2d_t;
 
 //----------------------------------------------------------------
 // vec2d_t

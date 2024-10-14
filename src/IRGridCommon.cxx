@@ -54,7 +54,7 @@ setup_grid_transform(the_grid_transform_t &         transform,
   image_t::Pointer dx = make_image<image_t>(cols + 1, rows + 1, 1.0, 0.0);
   image_t::Pointer dy = make_image<image_t>(cols + 1, rows + 1, 1.0, 0.0);
 
-  typedef itk::LegendrePolynomialTransform<double, 1> approx_transform_t;
+  typedef itk::LegendrePolynomialTransform<itk::SpacePrecisionType, 1> approx_transform_t;
 
   // the mosaic to tile transform is typically more stable:
   approx_transform_t::Pointer mosaic_to_tile_approx;
@@ -207,7 +207,7 @@ setup_mesh_transform(the_mesh_transform_t &         transform,
   image_t::Pointer dx = make_image<image_t>(cols + 1, rows + 1, 1.0, 0.0);
   image_t::Pointer dy = make_image<image_t>(cols + 1, rows + 1, 1.0, 0.0);
 
-  typedef itk::LegendrePolynomialTransform<double, 1> approx_transform_t;
+  typedef itk::LegendrePolynomialTransform<itk::SpacePrecisionType, 1> approx_transform_t;
 
   // the mosaic to tile transform is typically more stable:
   approx_transform_t::Pointer mosaic_to_tile_approx;

@@ -82,6 +82,7 @@ public:
   itkStaticConstMacro(OutputSpaceDimension, unsigned int, 2);
 
   // shortcuts:
+  using Superclass::FixedParametersType;
   typedef Superclass::ParametersType ParametersType;
   typedef Superclass::JacobianType   JacobianType;
 
@@ -175,16 +176,16 @@ public:
 
   // virtual:
   void
-  SetFixedParameters(const ParametersType & params) override
+  SetFixedParameters(const FixedParametersType & params) override
   {
     this->m_FixedParameters = params;
   }
 
   // virtual:
-  const ParametersType &
+  const FixedParametersType &
   GetFixedParameters() const override
   {
-    ParametersType params = this->m_FixedParameters;
+    FixedParametersType params = this->m_FixedParameters;
 
     params[1] = transform_.rows_;
     params[2] = transform_.cols_;

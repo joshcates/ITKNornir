@@ -54,7 +54,7 @@
 //
 namespace itk
 {
-class MeshTransform : public Transform<double, 2, 2>
+class MeshTransform : public Transform<itk::SpacePrecisionType, 2, 2>
 {
 public:
   // standard typedefs:
@@ -62,7 +62,7 @@ public:
   typedef SmartPointer<Self>       Pointer;
   typedef SmartPointer<const Self> ConstPointer;
 
-  typedef Transform<double, 2, 2> Superclass;
+  typedef Transform<itk::SpacePrecisionType, 2, 2> Superclass;
 
   // Base inverse transform type:
   typedef Superclass                         InverseTransformType;
@@ -75,13 +75,14 @@ public:
   itkNewMacro(Self);
 
   /** Standard scalar type for this class. */
-  typedef double ScalarType;
+  typedef itk::SpacePrecisionType ScalarType;
 
   /** Dimension of the domain space. */
   itkStaticConstMacro(InputSpaceDimension, unsigned int, 2);
   itkStaticConstMacro(OutputSpaceDimension, unsigned int, 2);
 
   // shortcuts:
+  using Superclass::FixedParametersType;
   typedef Superclass::ParametersType ParametersType;
   typedef Superclass::JacobianType   JacobianType;
 
@@ -118,7 +119,7 @@ public:
     // ITK is not forgiving to NaNs:
     if (y[0] != y[0])
     {
-      y[0] = std::numeric_limits<double>::max();
+      y[0] = std::numeric_limits<itk::SpacePrecisionType>::max();
       y[1] = y[0];
     }
 
@@ -151,7 +152,7 @@ public:
     // ITK does not handle NaNs well:
     if (x[0] != x[0])
     {
-      x[0] = std::numeric_limits<double>::max();
+      x[0] = std::numeric_limits<itk::SpacePrecisionType>::max();
       x[1] = x[0];
     }
 
@@ -180,13 +181,13 @@ public:
 
   // virtual:
   void
-  SetFixedParameters(const ParametersType & params) override
+  SetFixedParameters(const FixedParametersType & params) override
   {
     this->m_FixedParameters = params;
   }
 
   // virtual:
-  const ParametersType &
+  const FixedParametersType &
   GetFixedParameters() const override
   {
     ParametersType params = this->m_FixedParameters;
@@ -309,8 +310,8 @@ public:
     // the_mesh_transform_t expects uv in the [0,1]x[0,1] range,
     // where as we remap it into the image tile physical coordinates
     // according to tile_min_ and tile_ext_:
-    double Su = transform_.tile_ext_[0];
-    double Sv = transform_.tile_ext_[1];
+    itk::SpacePrecisionType Su = transform_.tile_ext_[0];
+    itk::SpacePrecisionType Sv = transform_.tile_ext_[1];
 
     unsigned int idx[3];
     double       jac[12];
@@ -342,7 +343,7 @@ protected:
     this->m_FixedParameters[2] = 0.0;
 
     // bounding box if the image associated with this transform:
-    this->m_FixedParameters[3] = std::numeric_limits<double>::max();
+    this->m_FixedParameters[3] = std::numeric_limits<itk::SpacePrecisionType>::max();
     this->m_FixedParameters[4] = this->m_FixedParameters[3];
     this->m_FixedParameters[5] = -(this->m_FixedParameters[3]);
     this->m_FixedParameters[6] = -(this->m_FixedParameters[3]);
