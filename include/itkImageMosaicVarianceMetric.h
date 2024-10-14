@@ -36,6 +36,9 @@
 #include <itkSingleValuedCostFunction.h>
 #include <itkGradientRecursiveGaussianImageFilter.h>
 
+// local includes:
+#include "itkIRCommon.h"
+
 /** .
     This class computes the mean pixel variance across several images
     within the overlapping regions of the mosaic. Each image is warped

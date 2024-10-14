@@ -31,7 +31,6 @@
 #define _itkImageMosaicVarianceMetric_hxx
 
 // local includes:
-#include "itkIRCommon.h"
 #include "itkIRUtils.h"
 #include "IRTerminator.h"
 
