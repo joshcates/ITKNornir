@@ -480,21 +480,6 @@ operator << (stream_t & so, const std::list<data_t> & c)
 //----------------------------------------------------------------
 // operator +
 // 
-// Construct an on-the-fly linked list containing two elements:
-//
-template <typename T>
-inline std::list<T>
-operator + (const T & a, const T & b)
-{
-  std::list<T> ab;
-  ab.push_back(a);
-  ab.push_back(b);
-  return ab;
-}
-
-//----------------------------------------------------------------
-// operator +
-// 
 // Construct an on-the-fly linked list containing list a with item b appended:
 template <typename T>
 inline std::list<T>
