@@ -54,7 +54,7 @@ public:
   using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information. */
-  itkTypeMacro(IRRefineGrid, ImageToImageFilter);
+  itkOverrideGetNameOfClassMacro(IRRefineGrid);
 
   /** Standard New macro. */
   itkNewMacro(Self);

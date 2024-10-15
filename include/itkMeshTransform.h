@@ -69,7 +69,7 @@ public:
   typedef SmartPointer<InverseTransformType> InverseTransformPointer;
 
   // RTTI:
-  itkTypeMacro(MeshTransform, Transform);
+  itkOverrideGetNameOfClassMacro(MeshTransform);
 
   // macro for instantiation through the object factory:
   itkNewMacro(Self);

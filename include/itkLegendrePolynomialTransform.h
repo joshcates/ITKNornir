@@ -94,7 +94,7 @@ public:
   itkStaticConstMacro(ParameterVectorLength, unsigned int, (N + 1) * (N + 2));
 
   // RTTI:
-  itkTypeMacro(LegendrePolynomialTransform, Transform);
+  itkOverrideGetNameOfClassMacro(LegendrePolynomialTransform);
 
   // macro for instantiation through the object factory:
   itkNewMacro(Self);

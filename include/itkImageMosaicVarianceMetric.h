@@ -75,7 +75,7 @@ public:
   itkNewMacro(Self);
 
   /** Run-time type information (and related methods). */
-  itkTypeMacro(ImageMosaicVarianceMetric, SingleValuedCostFunction);
+  itkOverrideGetNameOfClassMacro(ImageMosaicVarianceMetric);
 
   /** Type of the moving Image. */
   typedef TInterpolator              interpolator_t;

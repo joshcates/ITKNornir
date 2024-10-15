@@ -84,7 +84,7 @@ public:
   itkStaticConstMacro(Nk, unsigned int, N);
 
   // RTTI:
-  itkTypeMacro(RadialDistortionTransform, Transform);
+  itkOverrideGetNameOfClassMacro(RadialDistortionTransform);
 
   // macro for instantiation through the object factory:
   itkNewMacro(Self);

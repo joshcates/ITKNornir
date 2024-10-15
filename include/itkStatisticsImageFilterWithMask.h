@@ -70,7 +70,7 @@ public:
   itkNewMacro(Self);  
 
   /** Runtime information support. */
-  itkTypeMacro(StatisticsImageFilterWithMask, ImageToImageFilter);
+  itkOverrideGetNameOfClassMacro(StatisticsImageFilterWithMask);
   
   /** Image related typedefs. */
   typedef typename TInputImage::Pointer InputImagePointer;

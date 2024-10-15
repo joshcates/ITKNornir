@@ -64,8 +64,7 @@ public:
   itkNewMacro(Self);
   
   /** Run-time type information (and related methods). */
-  itkTypeMacro(RegularStepGradientDescentOptimizer2, 
-	       SingleValuedNonLinearOptimizer);
+  itkOverrideGetNameOfClassMacro(RegularStepGradientDescentOptimizer2);
   
   //----------------------------------------------------------------
   // StopConditionType

@@ -69,7 +69,7 @@ public:
   typedef SmartPointer<InverseTransformType> InverseTransformPointer;
 
   // RTTI:
-  itkTypeMacro(GridTransform, Transform);
+  itkOverrideGetNameOfClassMacro(GridTransform);
 
   // macro for instantiation through the object factory:
   itkNewMacro(Self);

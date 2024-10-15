@@ -70,7 +70,7 @@ namespace itk
     itkNewMacro(Self);
     
     /** Run-time type information (and related methods). */
-    itkTypeMacro( InverseTransform, Transform );
+    itkOverrideGetNameOfClassMacro(InverseTransform);
     
     /** Standard scalar type for this class. */
     typedef typename Superclass::ScalarType ScalarType;
