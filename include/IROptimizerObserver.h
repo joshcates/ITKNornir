@@ -59,7 +59,7 @@ public:
     const TOptimizer * optimizer = dynamic_cast<const TOptimizer *>(object);
     *log_ << (unsigned int)(optimizer->GetCurrentIteration()) << '\t'
 	  << optimizer->GetValue() << '\t'
-	  << optimizer->GetCurrentPosition() << endl;
+	  << optimizer->GetCurrentPosition() << std::endl;
   }
   
   the_log_t * log_;

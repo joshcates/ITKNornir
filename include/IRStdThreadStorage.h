@@ -31,6 +31,7 @@
 
 // local includes:
 #include "IRThreadStorage.h"
+#include "IRThreadInterface.h"
 
 // std includes:
 #include <thread>
