@@ -6302,7 +6302,14 @@ approx_transform(const pnt2d_t &          tile_min,
   // calculate the shift:
   pnt2d_t center =
     pnt2d(tile_min[0] + (tile_max[0] - tile_min[0]) / 2.0, tile_min[1] + (tile_max[1] - tile_min[1]) / 2.0);
+#if defined(__GNUC__)
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wnonnull"
+  vec2d_t                shift = center - inverse->TransformPoint(center);
+#  pragma GCC diagnostic pop
+#else
   vec2d_t shift = center - inverse->TransformPoint(center);
+#endif
 
   typename legendre_transform_t::Pointer approx = setup_transform<legendre_transform_t>(tile_min, tile_max);
   approx->setup_translation(shift[0], shift[1]);
