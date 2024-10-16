@@ -10,10 +10,10 @@ on:
 
 jobs:
   cxx-build-workflow:
-    uses: InsightSoftwareConsortium/ITKRemoteModuleBuildTestPackageAction/.github/workflows/build-test-cxx.yml@e652fa28bfd900126ad59492716895f248ca10ff
+    uses: InsightSoftwareConsortium/ITKRemoteModuleBuildTestPackageAction/.github/workflows/build-test-cxx.yml@eaf04d8fc526dc24182d991d971cdd3c1fbab21d
 
   python-build-workflow:
-    uses: InsightSoftwareConsortium/ITKRemoteModuleBuildTestPackageAction/.github/workflows/build-test-package-python.yml@e652fa28bfd900126ad59492716895f248ca10ff
+    uses: InsightSoftwareConsortium/ITKRemoteModuleBuildTestPackageAction/.github/workflows/build-test-package-python.yml@eaf04d8fc526dc24182d991d971cdd3c1fbab21d
     with:
       macosx-deployment-target: '10.15'
     secrets:
