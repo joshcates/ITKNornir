@@ -34,7 +34,7 @@ namespace itk
  *
  */
 template <typename TInputImage, typename TOutputImage>
-class IRRefineGrid : public ImageToImageFilter<TInputImage, TOutputImage>
+class ITK_TEMPLATE_EXPORT IRRefineGrid : public ImageToImageFilter<TInputImage, TOutputImage>
 {
 public:
   ITK_DISALLOW_COPY_AND_MOVE(IRRefineGrid);

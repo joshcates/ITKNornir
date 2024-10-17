@@ -59,7 +59,7 @@ pthread_attr_t gomp_thread_attr;
 //----------------------------------------------------------------
 // BREAK
 //
-int
+Nornir_EXPORT int
 BREAK(unsigned int i)
 {
   printf("\n\n\nBREAK BREAK BREAK BREAK BREAK BREAK BREAK: %i\n\n\n\n", i);

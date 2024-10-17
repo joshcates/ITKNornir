@@ -31,6 +31,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #ifndef itkIRCommon_h
 #define itkIRCommon_h
 
+#include "NornirExport.h"
+
 // common:
 #include <itkSimpleFilterWatcher.h>
 #include <itkImageFileReader.h>
@@ -150,7 +152,7 @@ mask_so(const mask_t * mask)
 // point in BREAK. This is to be used in those cases when you know
 // exactly when you want to hit the breakpoint.
 //
-extern int
+Nornir_EXPORT int
 BREAK(unsigned int i);
 
 //----------------------------------------------------------------
