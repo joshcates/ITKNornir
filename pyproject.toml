@@ -4,12 +4,14 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "itk-nornir"
-version = "0.3.0"
+version = "0.3.1"
 description = "Nornir's takes large sets of overlapping images in 2D and produces registered (a.k.a. aligned) 2D and 3D volumes of any size and scale."
 readme = "README.rst"
 license = {file = "LICENSE"}
 authors = [
     { name = "Matt McCormick", email = "matt.mccormick@kitware.com" },
+    { name = "Dženan Zukić", email = "dzenan.zukic@kitware.com" },
+    { name = "Josh Cates", email = "josh.cates@kitware.com" },
 ]
 keywords = [
     "itk",
