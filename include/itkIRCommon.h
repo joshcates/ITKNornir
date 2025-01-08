@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include "NornirExport.h"
 
 // common:
+#include <itkIdentityTransform.h>
 #include <itkSimpleFilterWatcher.h>
 #include <itkImageFileReader.h>
 #include <itkImageFileWriter.h>

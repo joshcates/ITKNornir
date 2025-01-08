@@ -21,6 +21,8 @@ set(Nornir_SRCS
   IRTerminator.cxx
   IRStdMutex.cxx
   IRFFT.cxx
+  itkIRRefineGrid.cxx
 )
+
 
 itk_module_add_library(Nornir ${Nornir_SRCS})
